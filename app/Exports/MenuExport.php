@@ -21,5 +21,31 @@ class MenuExport implements FromCollection
         return menu::all(); 
         return Menu::where('id_outlet', auth()->user()->id_outlet)->get();
     }
+    use Exportable;
+
+    public function headings(): array
+    {
+        return [
+            'Column 1',
+            'Column 2',
+            // Tambahkan nama kolom yang sesuai dengan model Anda
+        ];
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class => function(AfterSheet $event) {
+                $event->sheet->getStyle('A1:B1')->applyFromArray([
+                    'font' => [
+                        'bold' => true,
+                    ],
+                    'alignment' => [
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                    ],
+                ]);
+            },
+        ];
+    }
                                    
 }                                            

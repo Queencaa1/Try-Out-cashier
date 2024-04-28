@@ -11,7 +11,7 @@
       <form method="post" action="menu" enctype="multipart/form-data">
       @csrf
   <div class="form-group row">
-    <label for="staticEmail" class="col-sm-4 col-form-label">Nama Menu</label>
+    <label for="staticEmail" class="col-sm-4 col-form-label">Nama menu</label>
     <div class="col-sm-8">
       <input type="text"  class="form-control" id="nama_menu" value="" name="nama_menu">
     </div>
@@ -31,16 +31,13 @@
       <input type="text"  class="form-control" id="deskripsi" value="" name="deskripsi">
     </div>
 
-    <label for="staticEmail" class="col-sm-4 col-form-label">Jenis Id</label>
+    <label for="staticEmail" class="col-sm-4 col-form-label">Jenis id</label>
     <div class="col-sm-8">
       <input type="text"  class="form-control" id="jenis_id" value="" name="jenis_id">
     </div>
 
-
     
-   
-
-      
+  
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>

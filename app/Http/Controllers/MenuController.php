@@ -60,7 +60,7 @@ class MenuController extends Controller
         // $foto = $request->file('foto');
         // Storage::put('foto/'.$request->file('foto'));
         // $foto->storeAs('gg', $foto->getClientOriginalName());
-        Menu::create($request->all());
+        
         DB::commit();
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
@@ -121,7 +121,7 @@ class MenuController extends Controller
     public function generatepdf()
     {
         $menu = menu::all();
-        $pdf = Pdf::loadView('menu.data', compact('menu'));
+        $pdf = Pdf::loadView('menu.pdf', compact('menu'));
         return $pdf->download('menu.pdf');
     }
      

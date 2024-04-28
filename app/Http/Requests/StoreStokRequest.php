@@ -31,8 +31,8 @@ class StoreStokRequest extends FormRequest
 
     public function messages(){
         return[
-            'menu_id.required' => 'Data nama karyawan belum diisi!',
-            'jumlah.required' => 'Data nama karyawan belum diisi!', 
+            'menu_id.required' => 'Data nama stok belum diisi!',
+            'jumlah.required' => 'Data nama stok belum diisi!', 
         ];
     }
 }

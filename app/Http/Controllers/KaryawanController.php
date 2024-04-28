@@ -7,7 +7,6 @@ use App\Models\Karyawan;
 use App\Http\Requests\StoreKaryawanRequest;
 use App\Http\Requests\UpdateKaryawanRequest;
 use Exception;
-use App\Imports\KaryawanImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\KaryawanExport;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -15,6 +14,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
 use Illuminate\Http\Request;
+use App\Imports\KaryawanImport;
 
 class KaryawanController extends Controller
 {
@@ -25,8 +25,10 @@ class KaryawanController extends Controller
     {
         $karyawan = Karyawan::latest()->get();
         return view('karyawan.index', compact('karyawan'));
+        
         // catch (QueryException)
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -109,8 +111,9 @@ class KaryawanController extends Controller
 
     public function generatepdf()
     {
+        
         $karyawan = karyawan::all();
-        $pdf = Pdf::loadView('karyawan.data', compact('karyawan'));
+        $pdf = Pdf::loadView('karyawan.pdf', compact('karyawan'));
         return $pdf->download('karyawan.pdf');
     }
      

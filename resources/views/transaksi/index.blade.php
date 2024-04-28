@@ -35,10 +35,10 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormTransaksi">
          Tambah Transaksi
       </button>
-      <a href="{{ route('hiu') }}" class="btn btn-danger">
+      <a href="{{ route('transaksi-pdf') }}" class="btn btn-danger">
                         <i class="fas fa-file-pdf"></i> Export PDF
                     </a>
-                    <a href="{{ route('ratna') }}" class="btn btn-success">
+                    <a href="{{ route('transaksiexcel') }}" class="btn btn-success">
                 <i class="fas fa-file-excel"></i> Export XSLX
             </a>
             <!-- <button href="{{ route('import') }}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#formImport">

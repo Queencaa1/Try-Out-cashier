@@ -10,5 +10,10 @@ class stok extends Model
     use HasFactory;
 
     protected $table = 'stok';
-    protected $fillable = ['menu_id', 'stok'];
+    protected $guarded = [''];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }

@@ -4,25 +4,48 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth; // Tambahkan impor kelas Auth
 
 class cekUserLogin
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  mixed  $rules
+     * @return mixed
      */
     public function handle(Request $request, Closure $next, $rules)
     {
-        $user = Auth::user();
-
-        if(!Auth::check()){
+        // Periksa apakah pengguna terotentikasi
+        if (!Auth::check()) {
             return redirect('login');
         }
-        if($user->level == $rules)
-        return $next($request);
 
-        return redirect('login')->with('error', 'you have no privildge');
+        // Dapatkan informasi pengguna saat ini
+        $user = Auth::user();
+
+        // Periksa peran pengguna
+        if ($user && $user->level == $rules) {
+            return $next($request);
+        }
+
+        // Jika pengguna tidak memiliki akses, redirect ke halaman login dengan pesan kesalahan
+        return redirect('login')->with('error', 'You have no privilege');
+    }
+    
+}
+class CheckRole
+{
+    public function handle($request, Closure $next, $role)
+    {
+        $user = Auth::user();
+
+        if ($user && $user->role == $role) {
+            return $next($request);
+        }
+
+        abort(403, 'Unauthorized action.');
     }
 }

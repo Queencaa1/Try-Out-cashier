@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Try Outk</title>
+    <title>Try Out</title>
     <!-- base:css -->
     <link rel="stylesheet" href="{{asset('admin')}}/celestial/template/vendors/typicons.font/font/typicons.css">
     <link rel="stylesheet" href="{{asset('admin')}}/celestial/template/vendors/css/vendor.bundle.base.css">
@@ -66,7 +66,7 @@
           <li class="nav-item">
             <div class="d-flex sidebar-profile">
               <div class="sidebar-profile-image">
-                <img src="img/download.png" alt="image">
+                <img src="img/kucing.png" alt="image">
                 <span class="sidebar-status-indicator"></span>
               </div>
               <div class="sidebar-profile-name">
@@ -75,26 +75,21 @@
     </p>
 </div> 
   </div>
+  @if (Auth::user()->level==1)
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/home">
             <i class="fa fa-home menu-icon"></i>
                 <span class="menu-title">Home</span>
             </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="/karyawan">
             <i class="fa fa-user menu-icon"></i>
                 <span class="menu-title">Karyawan</span>
             </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/pemesanan">
-            <i class="fa fa-shopping-cart menu-icon"></i>
-                <span class="menu-title">Pemesanan</span>
-            </a>
-        </li>
+        </li> -->
         <li class="nav-item">
             <a class="nav-link" href="/jenis">
             <i class="fa fa-list-ul menu-icon"></i>
@@ -107,12 +102,12 @@
                 <span class="menu-title">Menu</span>
             </a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="/stok">
                 <i class="typcn typcn-compass menu-icon"></i>
                 <span class="menu-title">Stok</span>
             </a>
-        </li> -->
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="/pelanggan">
             <i class="fa fa-users menu-icon"></i>
@@ -131,18 +126,74 @@
                 <span class="menu-title">meja</span>
             </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="/produkTitipan">
                 <i class="typcn typcn-document-text menu-icon"></i>
                 <span class="menu-title">Produk Titipan</span>
             </a>
+        </li> -->
+        <li class="nav-item">
+            <a class="nav-link" href="/contactUs">
+            <i class="fa fa-book menu-icon"></i>
+                <span class="menu-title">Contact Us</span>
+            </a>
         </li>
+        </li>
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="/absensi">
+            <i class="fa fa-book menu-icon"></i>
+                <span class="menu-title">Absensi</span>
+            </a>
+        </li> -->
         <li class="nav-item">
             <a class="nav-link" href="/tentang">
-            <i class="fa fa-info'' menu-icon"></i>
+            <i class="fa fa-info menu-icon"></i>
                 <span class="menu-title">Tentang Aplikasi</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/register">
+            <i class="fa fa-info menu-icon"></i>
+                <span class="menu-title">Tambah Akun</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">
+            <i class="fa fa-power-off menu-icon"></i>
+                <span class="menu-title">Logout</span>
+            </a>
+        </li>
+       
+        @endif
+
+        @if (Auth::user()->level==2)
+        <li class="nav-item">
+            <a class="nav-link" href="/pemesanan">
+            <i class="fa fa-shopping-cart menu-icon"></i>
+                <span class="menu-title">Pemesanan</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">
+            <i class="fa fa-power-off menu-icon"></i>
+                <span class="menu-title">Logout</span>
+            </a>
+        </li>
+        @endif
+        @if (Auth::user()->level==3)
+        <li class="nav-item">
+            <a class="nav-link" href="/pemesanan">
+            <i class="fa fa-shopping-cart menu-icon"></i>
+                <span class="menu-title">Pemesanan</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">
+            <i class="fa fa-power-off menu-icon"></i>
+                <span class="menu-title">Logout</span>
+            </a>
+        </li>
+        @endif
         </ul>
       </nav>
 

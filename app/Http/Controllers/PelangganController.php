@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use PDOException;
 use Illuminate\Http\Request;
 
+
 class PelangganController extends Controller
 {
     /**
@@ -111,7 +112,9 @@ class PelangganController extends Controller
     public function generatepdf()
     {
         $pelanggan = pelanggan::all();
-        $pdf = Pdf::loadView('pelanggan.data', compact('pelanggan'));
+        // $pdf = Pdf::loadView('pelanggan.data', compact('pelanggan'));
+        // return $pdf->download('pelanggan.pdf');
+        $pdf = PDF::loadView('pelanggan.pdf');
         return $pdf->download('pelanggan.pdf');
     }
      

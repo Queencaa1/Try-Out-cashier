@@ -6,14 +6,14 @@
             <th>Harga</th>
             <th>Image</th>
             <th>Deskripsi</th>
-            <th>jenis_id</th>
+            <th>jenis id</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach ($menu as $m)
         <tr>
-            <td>{{ $i = !isset($i)?$i=1:++$i }}</td>
+        <td>{{ $i = !isset($i)?$i=1:++$i }}</td>
             <td>{{ $m->nama_menu }}</td>
             <td>{{ $m->harga }}</td>
             <td><img src="{{asset('storage/' .$m->image) }}" class="" alt="foto {{ $m->nama_menu}}"

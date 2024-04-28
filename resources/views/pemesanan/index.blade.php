@@ -12,39 +12,48 @@
                 </div><!-- End Page Title -->
 
                 <div class="container">
-                    {{-- <div class="item header">Header</div> --}}
-                    <div class="item">
-                        <ul class="menu-container ">
-                            @foreach ($jenis as $j)
-                                <li>
-                                    <h3>{{ $j->nama_jenis }}</h3>
-                                    <ul class="menu-item" style="cursor: pointer;">
+    {{-- <div class="item header">Header</div> --}}
+    <div class="item">
+        <ul class="menu-container">
+            @foreach ($jenis as $j)
+                <li>
+                    <h3>{{ $j->nama_jenis }}</h3>
+                    <ul class="menu-item" style="cursor: pointer;">
                                         @foreach ($j->menu as $menu)
                                             <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}">
-                                                {{ $menu->nama_menu }}</li>
-                                            <div class="image-menu">
-                                              <img src="{{ asset('storage/ . $menu->image) }}"
-                                                 alt="{{ $menu->nama_menu}} Image" style="width: 700px;">
-                                            </div>
+                                                <div class="menu-item">
+                                                    <div class="menu-name">
+                                                        <h6 style=" font-weight: bold;">{{ $menu->nama_menu }}</h6>
+                                                    </div>
+                                                    <div class="image-menu">
+                                                        <img src="{{ asset('storage/' . $menu->image) }}"
+                                                            alt="{{ $menu->nama_menu }} Image" style="width: 70px;">
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endforeach
                                     </ul>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+
 
                 </div>
-            </div>
-            <div class="item content">
-                <h3>Order</h3>
-                <ul class="ordered-list">
-
-                </ul>
-                Total Bayar : <h2 id="total"> 0</h2>
-                <div>
-                    <button id="btn-bayar">Bayar</button>
-                </div>
-            </div>
+          
+    
+    <div class="item content">
+        <h3>Order</h3>
+        <ul class="ordered-list">
+            <!-- Daftar Pesanan -->
+        </ul>
+        Total Bayar : <h2 id="total"> 0</h2>
+        <div>
+            <button id="btn-bayar">Bayar</button>
+        </div>
+    </div>
+</div>
             <!-- /.card-footer-->
             </div>
             <!-- /.card -->
@@ -166,6 +175,35 @@
     </script>
 @endpush
     <style>
+     /* Menentukan gaya untuk daftar menu */
+     .menu-item {
+        list-style-type: none; /* Menghilangkan bullet points */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Menentukan gaya untuk setiap elemen menu */
+    .menu-item li {
+        margin-bottom: 10px; /* Spasi antar elemen menu */
+        padding: 10px; /* Padding untuk membuat area klik lebih besar */
+        border: 1px solid #ccc; /* Menambahkan border */
+        border-radius: 5px; /* Membuat ujung elemen menjadi bulat */
+        overflow: hidden; /* Mengatur overflow untuk elemen yang lebih besar dari ukurannya */
+        transition: all 0.3s ease; /* Animasi transisi */
+    }
+
+    /* Menentukan gaya untuk gambar menu */
+    .menu-item li .image-menu img {
+        width: 100%; /* Mengisi lebar parent container */
+        display: block; /* Menghindari spasi ekstra */
+        border-radius: 5px; /* Membuat ujung gambar menjadi bulat */
+    }
+
+    /* Menentukan gaya hover pada elemen menu */
+    .menu-item li:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Menambahkan efek bayangan saat dihover */
+        transform: translateY(-2px); /* Membuat efek angkat ketika dihover */
+    }
         .main {
             display: flex;
         }
@@ -202,23 +240,53 @@
             padding: 10px 15px; /* Mengatur padding */
             margin: 0; /* Menghilangkan margin */
         }
+        .flex-container {
+    display: flex;
+    gap: 20px; /* Jarak antara elemen-elemen */
+}
 
-        .menu-item {
-            list-style-type: none;
-            display: flex;
-            gap: 1em;
-            text-align: center;
-            padding: 0; /* Menghilangkan padding */
-        }
+.menu-container,
+.item.content {
+    flex: 1; /* Meratakan lebar elemen */
+}
+/* Style for the content container */
+.item.content {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
 
-        .menu-item li {
-            background-color: beige;
-            padding: 10px 20px;
-            transition: background-color 0.3s; /* Efek transisi hover */
-            border-radius: 5px; /* Mengatur sudut */
-        }
+/* Style for the order list */
+.ordered-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
 
-        .menu-item li:hover {
-            background-color: #f0f0f0; /* Warna latar belakang hover */
-        }
+/* Style for the total payment */
+#total {
+    color: #ff5733;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* Style for the button */
+#btn-bayar {
+    background-color: pink;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Style for the button hover effect */
+#btn-bayar:hover {
+    background-color: pink;
+}
+
+
     </style>

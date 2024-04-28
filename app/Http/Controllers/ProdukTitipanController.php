@@ -122,7 +122,7 @@ class ProdukTitipanController extends Controller
     public function generatepdf()
     {
         $produkTitipan = produkTitipan::all();
-        $pdf = Pdf::loadView('produkTitipan.data', compact('produkTitipan'));
+        $pdf = Pdf::loadView('produkTitipan.pdf', compact('produkTitipan'));
         return $pdf->download('produkTitipan.pdf');
     }
      

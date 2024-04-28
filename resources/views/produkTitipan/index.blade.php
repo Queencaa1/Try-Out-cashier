@@ -40,13 +40,13 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormProdukTitipan">
          Tambah Produk
       </button>
-      <a href="{{ route('hiu') }}" class="btn btn-danger">
+      <a href="{{ route('menu-pdf') }}" class="btn btn-danger">
                         <i class="fas fa-file-pdf"></i> Export PDF
                     </a>
-                    <a href="{{ route('ratna') }}" class="btn btn-success">
+                    <a href="{{ route('menuexcel') }}" class="btn btn-success">
                 <i class="fas fa-file-excel"></i> Export XSLX
             </a>
-            <button href="{{ route('import') }}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#formImport">
+            <button href="{{ route('ikan') }}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#formImport">
             <i class="fas fa-file-excel"></i> Import </button>
       <div class="mt-3">
             @include('produkTitipan.data')

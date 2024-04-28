@@ -155,7 +155,7 @@ class TransaksiController extends Controller
     public function generatepdf()
     {
         $transaksi = transaksi::all();
-        $pdf = Pdf::loadView('transaksi.data', compact('transaksi'));
+        $pdf = Pdf::loadView('transaksi.pdf', compact('transaksi'));
         return $pdf->download('transaksi.pdf');
     }
      

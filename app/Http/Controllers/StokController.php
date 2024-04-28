@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
 use App\Models\Stok;
+use App\Models\Menu;
 use App\Http\Requests\StoreStokRequest;
 use App\Http\Requests\UpdateStokRequest;
 use Exception;
@@ -15,6 +16,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
+
 use Illuminate\Http\Request;
 
 
@@ -25,9 +27,14 @@ class StokController extends Controller
      */
     public function index()
     {
-        $stok = Stok::latest()->get();
-        return view('stok.index', compact('stok'));
-        // catch (QueryException)
+       $stok = Stok::all();
+       try{
+           $data['stok'] = Stok::with(['menu'])->get();
+           $data['menu'] = Menu::get();
+           return view('stok.index')->with($data);
+       }catch (Exception $e){
+           return redirect()->back()->withErrors(['message' => 'terjadi kesalagan']);
+       }
     }
 
     /**
@@ -50,7 +57,7 @@ class StokController extends Controller
         // dd($request->file('foto'));
         $foto = $request->file('foto');
         // Storage::put('foto/'.$request->file('foto'));
-        $foto->storeAs('gg', $foto->getClientOriginalName());
+      
         Stok::create($request->all());
         DB::commit();
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
@@ -111,7 +118,7 @@ class StokController extends Controller
     public function generatepdf()
     {
         $stok = stok::all();
-        $pdf = Pdf::loadView('stok.data', compact('stok'));
+        $pdf = Pdf::loadView('stok.pdf', compact('stok'));
         return $pdf->download('stok.pdf');
     }
      
