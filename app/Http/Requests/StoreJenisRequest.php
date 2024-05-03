@@ -23,7 +23,7 @@ class StoreJenisRequest extends FormRequest
     {
         return [
             'nama_jenis' => ['required', 'max:50', 'string'],
-            'kategory_id' => ['required', 'max:50', 'string'],
+           
             
         ];
         
@@ -32,7 +32,7 @@ class StoreJenisRequest extends FormRequest
     public function messages(){
         return[
             'nama_jenis.required' => 'Data nama jenis belum diisi!',
-            'kategory_id.required' => 'Data nama jenis belum diisi!',   
+
         ];
     }
 }

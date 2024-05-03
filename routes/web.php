@@ -24,7 +24,8 @@ use App\Http\Controllers\RegisterController;
 
 
 
-Route::resource('home', HomeController::class);
+Route::get('home', [HomeController::class, 'index']);
+Route::get('totalPendapatan/{lastCount}', 'HomeController@totalPendapatan');
 Route::resource('karyawan', KaryawanController::class);
 Route::resource('pemesanan', PemesananController::class);
 Route::resource('jenis', JenisController::class);

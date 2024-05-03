@@ -23,7 +23,7 @@ class UpdateJenisRequest extends FormRequest
     {
         return [
             'nama_jenis' => 'required|string',
-            'kategory_id' => 'required|string'
+           
         ];
     }
 }

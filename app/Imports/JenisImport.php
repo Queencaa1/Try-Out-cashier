@@ -19,12 +19,12 @@ class JenisImport implements ToCollection, WithHeadingRow
     {
         foreach ($collection as $row){
             $nama_jenis = $row['nama_jenis'];
-            $kategory_id = $row['kategory_id'];
+           
            
 
             Jenis::create([
                 'nama_jenis' => $nama_jenis,
-                'kategory_id' => $kategory_id
+               
             ]);
         }
     }

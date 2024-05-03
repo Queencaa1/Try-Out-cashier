@@ -21,6 +21,15 @@ class DetailTransaksiController extends Controller
         $detailTransaksi = DetailTransaksi::latest()->get();
         return view('detailTransaksi.index', compact('detailTransaksi'));
         // catch (QueryException)
+
+        $detailTransaksi = [
+            ['tanggal' => '2024-04-01', 'jumlah' => 20],
+            ['tanggal' => '2024-04-02', 'jumlah' => 30],
+        // ...
+    ];
+    
+    return view('detailTransaksi.index')->with('transaksi', $transaksi);
+    
     }
 
     /**
@@ -101,4 +110,5 @@ class DetailTransaksiController extends Controller
             $this->failResponse($error->getMessage(), $error->getCode());
         }
     }
+    
 }

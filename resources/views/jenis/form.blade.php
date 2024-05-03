@@ -16,10 +16,7 @@
       <input type="text"  class="form-control" id="nama_jenis" value="" name="nama_jenis">
     </div>
     
-    <label for="staticEmail" class="col-sm-4 col-form-label">Kategori Id</label>
-    <div class="col-sm-8">
-      <input type="text"  class="form-control" id="kategory_id" value="" name="kategory_id">
-    </div>
+   
 
 
     

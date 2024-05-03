@@ -77,7 +77,7 @@
             @foreach ($transaksi->detailTransaksi as $index => $item)
             <tr>
                 <td>{{ $item->jumlah }}</td>
-                <td>{{ $item->menu->nama }}</td>
+                <td>{{ $item->menu->nama_menu }}</td>
                 <td>{{ number_format($item->menu->harga, 0, ",", ".") }}</td>
                 <td>{{ number_format($item->subtotal, 0, ",", ".") }}</td>
             </tr>

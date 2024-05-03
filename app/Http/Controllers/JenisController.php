@@ -15,6 +15,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
 use Illuminate\Http\Request;
+use App\Models\Menu;
 
 class JenisController extends Controller
 {
@@ -22,15 +23,19 @@ class JenisController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        try {
-            $jenis = Jenis::latest()->get();
-            return view('jenis.index', compact('jenis'));
-        } catch (QueryException | Exception | PDOException $error) {
-            //    $this->failResponse($error->getMessage(), $error->getCode());
-            // return redirect()->back()->withErrors(['message' => 'Terjadi error']);
-        }
+{
+    try {
+        $jenis = Jenis::orderBy('created_at', 'DESC')->get();
+        return view('jenis.index', compact('jenis'));
+    } catch (QueryException | Exception | PDOException $error) {
+        $this->failResponses($error->getMessage(), $error->getCode());
     }
+}
+
+    
+    
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -73,11 +78,12 @@ class JenisController extends Controller
     }
 
     public function generatepdf()
-    {
-        $jenis = jenis::all();
-        $pdf = Pdf::loadView('jenis.pdf', compact('jenis'));
-        return $pdf->download('jenis.pdf');
-    }
+{
+    $jenis = Jenis::all(); // Mengambil semua data jenis dari model Jenis
+    $pdf = Pdf::loadView('jenis.pdf', compact('jenis'));
+    return $pdf->download('jenis.pdf');
+}
+
      
     public function exportData()
     {

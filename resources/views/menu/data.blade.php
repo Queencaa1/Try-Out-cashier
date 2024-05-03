@@ -19,7 +19,7 @@
             <td><img src="{{asset('storage/' .$m->image) }}" class="" alt="foto {{ $m->nama_menu}}"
                   style="width: 60px"></td>
             <td>{{ $m->deskripsi }}</td>
-            <td>{{ $m->jenis_id }}</td>
+            <td>{{ $m->jenis->nama_jenis }}</td>
 
 
             <td>

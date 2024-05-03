@@ -61,7 +61,7 @@ tr:hover {
         <tbody>
             @foreach ($stok as $s)
             <tr>
-                <td>{{ $s->menu_id }}</td>
+                <td>{{ $s->nama_menu }}</td>
                 <td>{{ $s->jumlah }}</td>
                
                

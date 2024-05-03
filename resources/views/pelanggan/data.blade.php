@@ -20,12 +20,13 @@
 
 
             <td>
-                        <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalFormPelanggan"
+            <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
                             data-mode = "edit" data-id = "{{ $p->id }}" 
                             data-nama ="{{ $p->nama }}"
                             data-email ="{{ $p->email }}" 
                             data-nomor_telepon ="{{ $p->nomor_telepon }}"
-                            data-alamat ="{{ $p->alamat }}">
+                            data-alamat ="{{ $p->alamat }}" >
+                
                             <i class="fas fa-edit"></i>
                         </button>
                         <form method="post" action="{{ route('pelanggan.destroy', $p->id) }}" style="display:inline">

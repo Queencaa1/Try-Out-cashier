@@ -12,7 +12,6 @@ use App\Imports\StokImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\StokExport;
 use Barryvdh\DomPDF\Facade\Pdf;
-// use App\Models\stok;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;

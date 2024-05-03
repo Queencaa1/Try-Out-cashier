@@ -15,7 +15,9 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
 use Illuminate\Http\Request;
+use App\Models\Jenis;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
+
 
 class MenuController extends Controller
 {
@@ -23,11 +25,12 @@ class MenuController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $menu = Menu::latest()->get();
-        return view('menu.index', compact('menu'));
-        // catch (QueryException)
-    }
+{
+    $jenis = Jenis::orderBy('created_at', 'DESC')->get(); // Mendapatkan data jenis
+    $menu = Menu::with('jenis')->get();
+    return view('menu.index', compact('jenis', 'menu')); // Menggunakan compact untuk menyertakan variabel $jenis
+}
+
 
     /**
      * Show the form for creating a new resource.

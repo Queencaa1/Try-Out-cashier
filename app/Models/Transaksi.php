@@ -15,4 +15,10 @@ class transaksi extends Model
     public function DetailTransaksi(){
     return $this->hasMany(DetailTransaksi::class);
    }
+   // Di dalam model Transaksi
+    public function scopeFilterByDate($query, $startDate, $endDate)
+     {
+         return $query->whereBetween('tanggal', [$startDate, $endDate]);
+      }
+
 }

@@ -25,7 +25,7 @@ Modal
 
                         <label for="image" class="col-sm-4 col-form-label">Image</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="image" name='image'>
+                            <input type="text" class="form-control" id="image" name='image' accept="image/*">
                         </div>
 
                         <label for="deskripsi" class="col-sm-4 col-form-label">Deskripsi</label>

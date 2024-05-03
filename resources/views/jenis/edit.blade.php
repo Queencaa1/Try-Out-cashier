@@ -18,10 +18,6 @@
                             <input type="text" class="form-control" id="nama_jenis" name='nama_jenis'>
                         </div>
 
-                        <label for="kategory_id" class="col-sm-4 col-form-label">category ID</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kategory_id" name='kategory_id'>
-                        </div>
 
                         {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
                 <div class="col-sm-8">

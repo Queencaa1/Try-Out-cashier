@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\menu; 
+use App\Models\Menu; 
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +10,8 @@ use Maatwebsite\Excel\concerns\WithEvents;
 use Maatwebsite\Excel\Events\BeforeExport;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Sheet;
+use App\Exports\Exportable;
+
 
 class MenuExport implements FromCollection
 {

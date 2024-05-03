@@ -24,7 +24,7 @@ class PelangganController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {  
         $pelanggan = Pelanggan::latest()->get();
         return view('pelanggan.index', compact('pelanggan'));
         // catch (QueryException)

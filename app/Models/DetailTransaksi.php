@@ -18,4 +18,5 @@ class detailTransaksi extends Model
     public function menu(){
         return $this->hasOne(menu::class, 'id', 'menu_id');
     }
+    
 }

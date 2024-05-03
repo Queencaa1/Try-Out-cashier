@@ -101,23 +101,25 @@
     console.log('nip')
 $('#modalEdit').on('show.bs.modal', function(e) {
     let button = $(e.relatedTarget)
+    let id = $(button).data('id')
     let nama = $(button).data('nama')
     let email = $(button).data('email')
     let nomor_telepon = $(button).data('nomor_telepon')
     let alamat = $(button).data('alamat')
-    console.log('nip')
+   
+
 
 
     $(this).find('#nama').val(nama)
     $(this).find('#email').val(email)
     $(this).find('#nomor_telepon').val(nomor_telepon)
     $(this).find('#alamat').val(alamat)
-
+   
     $('.form-edit').attr('action',` /pelanggan/${id}`)
 })
   })
   </script>
-  <script>
+   <script>
     let table = new DataTable('#myTable');
   </script>
 @endpush   

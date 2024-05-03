@@ -28,7 +28,7 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::latest()->get();
         return view('transaksi.index', compact('transaksi'));
-        // catch (QueryException)
+    
     }
 
     /**
@@ -173,5 +173,6 @@ class TransaksiController extends Controller
         Excel::import(new TransaksiImport, $request->import);
         return redirect()->back()->with('success', 'Import Data Transaksi Berhasil');
     }
+    
     
 }

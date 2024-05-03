@@ -59,7 +59,7 @@ tr:hover {
         <tbody>
             @foreach ($jenis as $j)
             <tr>
-                <td>{{ $j->makanan }}</td>
+                <td>{{ $j->nama_jenis }}</td>
                
             </tr>
             @endforeach
